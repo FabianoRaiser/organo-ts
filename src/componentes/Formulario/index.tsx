@@ -10,7 +10,7 @@ interface FormularioProps {
     times: string[]
 }
 
-const Formulario = (props: FormularioProps) => {
+const Formulario = ({aoColaboradorCadastrado, times}: FormularioProps) => {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -19,7 +19,7 @@ const Formulario = (props: FormularioProps) => {
 
     const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
-        props.aoColaboradorCadastrado({
+        aoColaboradorCadastrado({
             nome,
             cargo,
             imagem,
@@ -58,7 +58,7 @@ const Formulario = (props: FormularioProps) => {
                 <ListaSuspensa
                     obrigatorio={true}
                     label="Time" 
-                    itens={props.times}
+                    itens={times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
